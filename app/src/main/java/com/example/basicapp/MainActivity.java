@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
                 .setButtonText("UNDO")
                 .setButtonIconResource(R.drawable.ic_undo)
