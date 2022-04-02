@@ -2,8 +2,12 @@ package com.example.basicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import com.github.johnpersano.supertoasts.library.Style;
+import com.github.johnpersano.supertoasts.library.SuperActivityToast;
+import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,22 +16,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int result = check();
 
-        Toast.makeText(this,"Hello tostaita from Android -> " + result, Toast.LENGTH_LONG).show();
+        SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
+                .setButtonText("UNDO")
+                .setButtonIconResource(R.drawable.ic_undo)
+                .setOnButtonClickListener("good_tag_name", null, null)
+                .setProgressBarColor(Color.WHITE)
+                .setText("Email deleted")
+                .setDuration(Style.DURATION_LONG)
+                .setFrame(Style.FRAME_LOLLIPOP)
+                .setColor(PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_PURPLE))
+                .setAnimations(Style.ANIMATIONS_POP).show();
     }
 
-    private int check(){
-        int a = 5;
-        int b = 10;
-        int c = 20;
 
-        if(a > b){
-            return 0;
-        } else if (c > a){
-            return c;
-        } else {
-            return a;
-        }
-    }
 }
