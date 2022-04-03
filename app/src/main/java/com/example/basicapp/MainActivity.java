@@ -2,6 +2,7 @@ package com.example.basicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button helloButton;
     private Button byeButton;
-    private Button nextButton;
+
+    private View nextButton;
+    private final String GREETING = "Hello from the other side!";
 
 
     @Override
@@ -37,7 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Next button clicked!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Next Activity clicked!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("greeting", GREETING);
+                startActivity(intent);
             }
         });
 
