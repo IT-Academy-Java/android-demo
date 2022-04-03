@@ -14,19 +14,22 @@ import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button greetingButton;
+    private Button helloButton;
+    private Button byeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**  //First form
-        greetingButton = findViewById(R.id.helloButton);
-        greetingButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show()); */
+        helloButton = findViewById(R.id.helloButton);
+        helloButton.setOnClickListener(this);
 
-        greetingButton = findViewById(R.id.helloButton);
-        greetingButton.setOnClickListener(this);
+        // Second form
+        byeButton = findViewById(R.id.byeButton);
+        byeButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Bye bye tinner!!!", Toast.LENGTH_SHORT).show());
+
+
 
         // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
