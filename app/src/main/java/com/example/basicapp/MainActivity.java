@@ -12,9 +12,10 @@ import com.github.johnpersano.supertoasts.library.Style;
 import com.github.johnpersano.supertoasts.library.SuperActivityToast;
 import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button greetingButton;
+    private Button goodbyeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
         greetingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Toast demo class", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show();
             }
         });
 
+        // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
                 .setButtonText("UNDO")
                 .setButtonIconResource(R.drawable.ic_undo)
@@ -39,8 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 .setFrame(Style.FRAME_LOLLIPOP)
                 .setColor(PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_PURPLE))
                 .setAnimations(Style.ANIMATIONS_POP).show();
+
+
+        goodbyeButton = (Button) findViewById(R.id.goodbyeButton);
+        goodbyeButton.setOnClickListener(this);
     }
 
 
-
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(MainActivity.this, "Good bye darling!!!", Toast.LENGTH_SHORT).show();
+    }
 }

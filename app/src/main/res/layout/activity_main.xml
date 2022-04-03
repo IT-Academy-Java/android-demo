@@ -19,10 +19,16 @@
         android:id="@+id/greetingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:onClick="demoClass"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="435dp"
-        />
+        android:text="Hello"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="431dp" />
+
+    <Button
+        android:id="@+id/goodbyeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bye"
+        tools:layout_editor_absoluteX="236dp"
+        tools:layout_editor_absoluteY="431dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
