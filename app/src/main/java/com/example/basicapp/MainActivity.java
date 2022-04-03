@@ -21,13 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // First form
-        // greetingButton = findViewById(R.id.helloButton);
-        // greetingButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show());
+        /**  //First form
+        greetingButton = findViewById(R.id.helloButton);
+        greetingButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show()); */
 
         greetingButton = findViewById(R.id.helloButton);
         greetingButton.setOnClickListener(this);
-
 
         // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
@@ -46,4 +45,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show();
     }
+
 }
