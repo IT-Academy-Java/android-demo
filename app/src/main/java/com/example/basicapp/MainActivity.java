@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button helloButton;
     private Button byeButton;
+    private Button nextButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +27,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         helloButton = findViewById(R.id.helloButton);
         helloButton.setOnClickListener(this);
 
+
         // Second form
         byeButton = findViewById(R.id.byeButton);
         byeButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Bye bye tinner!!!", Toast.LENGTH_SHORT).show());
 
 
+        nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Next button clicked!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
