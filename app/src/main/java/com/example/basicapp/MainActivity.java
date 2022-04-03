@@ -2,6 +2,7 @@ package com.example.basicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button helloButton;
     private Button byeButton;
 
+    private View nextButton;
+    private final String GREETING = "Hello from the other side!";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +30,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         helloButton = findViewById(R.id.helloButton);
         helloButton.setOnClickListener(this);
 
+
         // Second form
         byeButton = findViewById(R.id.byeButton);
         byeButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Bye bye tinner!!!", Toast.LENGTH_SHORT).show());
 
 
+        nextButton = findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Next Activity clicked!!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("greeting", GREETING);
+                startActivity(intent);
+            }
+        });
 
         // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
