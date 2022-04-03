@@ -15,41 +15,35 @@ import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button greetingButton;
-    private Button goodbyeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        greetingButton = (Button) findViewById(R.id.greetingButton);
-        greetingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // First form
+        // greetingButton = findViewById(R.id.helloButton);
+        // greetingButton.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show());
+
+        greetingButton = findViewById(R.id.helloButton);
+        greetingButton.setOnClickListener(this);
+
 
         // Super Toast
         SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
                 .setButtonText("UNDO")
                 .setButtonIconResource(R.drawable.ic_undo)
-                .setOnButtonClickListener("good_tag_name", null, null)
                 .setProgressBarColor(Color.WHITE)
-                .setText("Email deleted")
+                .setText("Welcome to APP from SUPER TOAST!!!")
                 .setDuration(Style.DURATION_LONG)
                 .setFrame(Style.FRAME_LOLLIPOP)
                 .setColor(PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_PURPLE))
                 .setAnimations(Style.ANIMATIONS_POP).show();
-
-
-        goodbyeButton = (Button) findViewById(R.id.goodbyeButton);
-        goodbyeButton.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(MainActivity.this, "Good bye darling!!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "Hello darling!!!", Toast.LENGTH_SHORT).show();
     }
 }
