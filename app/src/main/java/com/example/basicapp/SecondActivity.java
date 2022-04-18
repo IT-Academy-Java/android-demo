@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null && bundle.getString("greeting") != null){
             String greeter = bundle.getString("greeting");
-            Toast.makeText(SecondActivity.this, "==>>>" + greeter, Toast.LENGTH_LONG).show();
+            Toast.makeText(SecondActivity.this, "Mensaje de main activity recibido ==>>>" + greeter, Toast.LENGTH_LONG).show();
             textView.setText(greeter);
         } else{
             Toast.makeText(SecondActivity.this, "Empty!!!", Toast.LENGTH_SHORT).show();
@@ -39,7 +39,6 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
     }
 }
